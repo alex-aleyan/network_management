@@ -25,4 +25,44 @@ Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=1</color>//) <c
 
 note over Server #red:Delay signal with SEQ=2 is accepted
 
+### Diag 3 
+ 
+title Teardown: FIN,ACK,FIN,ACK 
+
+participant "<color:#green>Client</background>" as Client
+
+participant "<color:#blue>Server</background>" as Server
+
+
+Client->(3)Server:<color:#green>FIN: SEQ=x</color>//
+
+Client(3)<-Server:<color:#green>ACK</color>//: <color:#blue>SEQ=y</color>// (<color:#green>ACK=x+1</color>//)
+Client(3)<-Server:<color:#blue>FIN</color>//: <color:#blue>SEQ=y+1</color>// (<color:#green>ACK=x+1</color>//)
+
+Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) <color:#blue>ACK=y+2</color>//
+
+
+#Client(3)<-Server:<color:#blue>FIN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=0</color>// (<color:#green>ACK=1</color>//)
+#note over Server #red:Delay signal with SEQ=2 is accepted
+
+### Diag 4
+
+title Teardown: FIN,FIN+ACK,ACK 
+
+participant "<color:#green>Client</background>" as Client
+
+participant "<color:#blue>Server</background>" as Server
+
+
+Client->(3)Server:<color:#green>FIN: SEQ=x</color>//
+
+Client(3)<-Server:<color:#blue>FIN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=y</color>//,<color:#green>ACK=x+1</color>//
+
+
+Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) <color:#blue>ACK=y+1</color>//
+
+
+#Client(3)<-Server:<color:#blue>FIN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=0</color>// (<color:#green>ACK=1</color>//)
+#note over Server #red:Delay signal with SEQ=2 is accepted
+
 
