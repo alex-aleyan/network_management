@@ -13,3 +13,5 @@ Client-#red:2>(18)Server:<color:#red>SEQ=2</color>//
 Client->(3)Server:SYN: SEQ=0
 Client(3)<-Server:SYN+ACK: SEQ=0 (ACK=1)
 Client->(3)Server:ACK: (SEQ=1) ACK=1 
+
+note over Server #red:Delay signal with SEQ=2 is accepted
