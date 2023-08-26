@@ -65,4 +65,19 @@ Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) 
 #Client(3)<-Server:<color:#blue>FIN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=0</color>// (<color:#green>ACK=1</color>//)
 #note over Server #red:Delay signal with SEQ=2 is accepted
 
+### Diag 5
+
+title Teardown (ungraceful): RST 
+
+participant "<color:#green>Client</background>" as Client
+
+participant "<color:#blue>Server</background>" as Server
+
+
+Client->(3)Server:<color:#green>DATA(5 bytes): SEQ=x</color>//,<color:#blue>ACK=y</color>//
+
+Client(3)<-Server:<color:#green>ACK(0 bytes)</color>//: <color:#blue>SEQ=y</color>//,<color:#green>ACK=x+5</color>//
+
+
+Client->(3)Server:<color:#red>RST<color:#green>(0 bytes)</color>//: (<color:#green>SEQ=x+5</color>//) <color:#blue>ACK=y</color>//
 
