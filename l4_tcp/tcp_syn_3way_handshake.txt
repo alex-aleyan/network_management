@@ -1,0 +1,5 @@
+title TCP SYN 3-way handshake
+
+Client->(3)Server:SYN: SEQ=x
+Client(3)<-Server:SYN+ACK: SEQ=y (ACK=x+1)
+Client->(3)Server:ACK: (SEQ=x+1) ACK=y+1
