@@ -1,5 +1,15 @@
+### Diag 1
 title TCP SYN 3-way handshake
 
 Client->(3)Server:SYN: SEQ=x
 Client(3)<-Server:SYN+ACK: SEQ=y (ACK=x+1)
 Client->(3)Server:ACK: (SEQ=x+1) ACK=y+1
+
+### Diag 2
+title TCP SYN Prior Incarnation
+
+Client-#red:2>(18)Server:<color:#red>SEQ=2</color>//
+                    space -18
+Client->(3)Server:SYN: SEQ=0
+Client(3)<-Server:SYN+ACK: SEQ=0 (ACK=1)
+Client->(3)Server:ACK: (SEQ=1) ACK=1 
