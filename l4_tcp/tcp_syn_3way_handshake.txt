@@ -1,9 +1,13 @@
 ### Diag 1
 title TCP SYN 3-way handshake
 
-Client->(3)Server:SYN: SEQ=x
-Client(3)<-Server:SYN+ACK: SEQ=y (ACK=x+1)
-Client->(3)Server:ACK: (SEQ=x+1) ACK=y+1
+participant "<color:#green>Client</background>" as Client
+
+participant "<color:#blue>Server</background>" as Server
+
+Client->(3)Server:<color:#green>SYN: SEQ=x</color>//
+Client(3)<-Server:<color:#blue>SYN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=y</color>// (<color:#green>ACK=x+1</color>//)
+Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) <color:#blue>ACK=y+1</color>//
 
 ### Diag 2
 title TCP SYN Prior Incarnation
