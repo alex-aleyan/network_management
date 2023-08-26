@@ -10,7 +10,7 @@ Client(3)<-Server:<color:#blue>SYN</color>//+<color:#green>ACK</color>//: <color
 Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) <color:#blue>ACK=y+1</color>//
 
 ### Diag 2
-title TCP SYN 3-way handshake
+title TCP SYN Incarnation Issue
 
 participant "<color:#green>Client</background>" as Client
 
