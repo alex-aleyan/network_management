@@ -10,12 +10,19 @@ Client(3)<-Server:<color:#blue>SYN</color>//+<color:#green>ACK</color>//: <color
 Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=x+1</color>//) <color:#blue>ACK=y+1</color>//
 
 ### Diag 2
-title TCP SYN Prior Incarnation
+title TCP SYN 3-way handshake
+
+participant "<color:#green>Client</background>" as Client
+
+participant "<color:#blue>Server</background>" as Server
+
 
 Client-#red:2>(18)Server:<color:#red>SEQ=2</color>//
                     space -18
-Client->(3)Server:SYN: SEQ=0
-Client(3)<-Server:SYN+ACK: SEQ=0 (ACK=1)
-Client->(3)Server:ACK: (SEQ=1) ACK=1 
+Client->(3)Server:<color:#green>SYN: SEQ=0</color>//
+Client(3)<-Server:<color:#blue>SYN</color>//+<color:#green>ACK</color>//: <color:#blue>SEQ=0</color>// (<color:#green>ACK=1</color>//)
+Client->(3)Server:<color:#blue>ACK</color>//: (<color:#green>SEQ=1</color>//) <color:#blue>ACK=1</color>//
 
 note over Server #red:Delay signal with SEQ=2 is accepted
+
+
